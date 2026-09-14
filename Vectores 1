@@ -1,0 +1,65 @@
+#include <stdio.h>
+
+#define TAMANO 5
+
+void mostrarVector(int vector[], int tamano);
+void modificarVector(int vector[], int tamano);
+
+int main(void)
+{
+    int vector[TAMANO] = {10, 20, 30, 40, 50};
+
+    printf("VECTOR ORIGINAL:\n");
+    mostrarVector(vector, TAMANO);
+
+    modificarVector(vector, TAMANO);
+
+    printf("\nVECTOR MODIFICADO:\n");
+    mostrarVector(vector, TAMANO);
+
+    return 0;
+}
+
+void modificarVector(int vector[], int tamano)
+{
+    int posicion;
+    int nuevoValor;
+    int continuar = 1;
+
+    while (continuar == 1)
+    {
+        printf("\nIngrese la posicion que desea modificar (0 a %d): ", tamano - 1);
+        scanf("%d", &posicion);
+
+        if (posicion >= 0 && posicion < tamano)
+        {
+            printf("Valor actual: %d\n", vector[posicion]);
+            printf("Ingrese el nuevo valor: ");
+            scanf("%d", &nuevoValor);
+
+            vector[posicion] = nuevoValor;
+
+            printf("\nEl valor fue modificado correctamente.\n");
+            printf("Vector actual:\n");
+            mostrarVector(vector, tamano);
+        }
+        else
+        {
+            printf("Error: la posicion ingresada no existe.\n");
+        }
+
+        printf("\nDesea modificar otro elemento?\n");
+        printf("Ingrese 1 para continuar o 0 para terminar: ");
+        scanf("%d", &continuar);
+    }
+}
+
+void mostrarVector(int vector[], int tamano)
+{
+    int i;
+
+    for (i = 0; i < tamano; i++)
+    {
+        printf("vector[%d] = %d\n", i, vector[i]);
+    }
+}
