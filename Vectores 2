@@ -13,17 +13,13 @@ int main(void)
     int suma;
     float promedio;
 
-    /* El usuario ingresa los datos del vector */
     cargarVector(vector, TAMANO);
 
-    /* Se imprimen los datos uno por uno */
     printf("\nDATOS DEL VECTOR:\n");
     imprimirVector(vector, TAMANO);
 
-    /* Se calcula la suma */
     suma = sumarVector(vector, TAMANO);
 
-    /* Se calcula el promedio */
     promedio = calcularPromedio(suma, TAMANO);
 
     printf("\nSuma total: %d\n", suma);
