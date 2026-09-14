@@ -1,0 +1,74 @@
+#include <stdio.h>
+
+#define TAMANO 5
+
+void cargarVector(int vector[], int tamano);
+void imprimirVector(int vector[], int tamano);
+int sumarVector(int vector[], int tamano);
+float calcularPromedio(int suma, int tamano);
+
+int main(void)
+{
+    int vector[TAMANO];
+    int suma;
+    float promedio;
+
+    /* El usuario ingresa los datos del vector */
+    cargarVector(vector, TAMANO);
+
+    /* Se imprimen los datos uno por uno */
+    printf("\nDATOS DEL VECTOR:\n");
+    imprimirVector(vector, TAMANO);
+
+    /* Se calcula la suma */
+    suma = sumarVector(vector, TAMANO);
+
+    /* Se calcula el promedio */
+    promedio = calcularPromedio(suma, TAMANO);
+
+    printf("\nSuma total: %d\n", suma);
+    printf("Promedio: %.2f\n", promedio);
+
+    return 0;
+}
+
+void cargarVector(int vector[], int tamano)
+{
+    int i;
+
+    printf("Ingrese %d numeros:\n", tamano);
+
+    for (i = 0; i < tamano; i++)
+    {
+        printf("Elemento %d: ", i);
+        scanf("%d", &vector[i]);
+    }
+}
+
+void imprimirVector(int vector[], int tamano)
+{
+    int i;
+
+    for (i = 0; i < tamano; i++)
+    {
+        printf("vector[%d] = %d\n", i, vector[i]);
+    }
+}
+
+int sumarVector(int vector[], int tamano)
+{
+    int i;
+    int suma = 0;
+
+    for (i = 0; i < tamano; i++)
+    {
+        suma = suma + vector[i];
+    }
+
+    return suma;
+}
+
+float calcularPromedio(int suma, int tamano)
+{
+    return (float)suma / tamano;
+}
