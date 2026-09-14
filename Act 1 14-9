@@ -27,7 +27,7 @@ int main(void)
     printf("Ingrese la nueva edad: ");
     scanf("%d", &alumno.edad);
 
-    printf("Ingrese el nuevo anio al que pertenece: ");
+    printf("Ingrese el nuevo año al que pertenece: ");
     scanf("%d", &alumno.año);
 
     printf("\nDATOS MODIFICADOS POR EL USUARIO\n");
