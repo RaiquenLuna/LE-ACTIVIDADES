@@ -1,0 +1,58 @@
+#include <stdio.h>
+
+#define TAMANO 5
+
+void cargarVector(int vector[], int tamano);
+void consultarDatos(int vector[], int tamano);
+
+int main(void)
+{
+    int vector[TAMANO];
+
+    cargarVector(vector, TAMANO);
+    consultarDatos(vector, TAMANO);
+
+    printf("\nPrograma finalizado.\n");
+
+    return 0;
+}
+
+void cargarVector(int vector[], int tamano)
+{
+    int i;
+
+    printf("Ingrese %d datos para el vector:\n", tamano);
+
+    for (i = 0; i < tamano; i++)
+    {
+        printf("Dato de la posicion %d: ", i);
+        scanf("%d", &vector[i]);
+    }
+}
+
+void consultarDatos(int vector[], int tamano)
+{
+    int posicion;
+    int continuar = 1;
+
+    while (continuar == 1)
+    {
+        printf("\nIngrese la posicion que desea consultar (0 a %d): ",
+               tamano - 1);
+        scanf("%d", &posicion);
+
+        if (posicion >= 0 && posicion < tamano)
+        {
+            printf("El dato de la posicion %d es: %d\n",
+                   posicion, vector[posicion]);
+        }
+        else
+        {
+            printf("Error: la posicion ingresada no existe.\n");
+        }
+
+        printf("\nDesea consultar otro dato?\n");
+        printf("Ingrese 1 para continuar o 0 para terminar: ");
+        scanf("%d", &continuar);
+    }
+}
