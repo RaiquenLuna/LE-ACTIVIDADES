@@ -1,0 +1,39 @@
+#include <stdio.h>
+#include <string.h>
+
+struct Alumno
+{
+    char nombre[50];
+    int edad;
+    int año;
+};
+
+int main(void)
+{
+    struct Alumno alumno = {"Pedro", 18, 1};
+
+    printf("DATOS ORIGINALES DEL ALUMNO\n");
+    printf("Nombre: %s\n", alumno.nombre);
+    printf("Edad: %d\n", alumno.edad);
+    printf("Año al que pertenece: %d\n", alumno.año);
+
+    printf("\nMODIFICAR DATOS\n");
+
+    printf("Ingrese el nuevo nombre: ");
+    fgets(alumno.nombre, sizeof(alumno.nombre), stdin);
+
+    alumno.nombre[strcspn(alumno.nombre, "\n")] = '\0';
+
+    printf("Ingrese la nueva edad: ");
+    scanf("%d", &alumno.edad);
+
+    printf("Ingrese el nuevo anio al que pertenece: ");
+    scanf("%d", &alumno.año);
+
+    printf("\nDATOS MODIFICADOS POR EL USUARIO\n");
+    printf("Nombre: %s\n", alumno.nombre);
+    printf("Edad: %d\n", alumno.edad);
+    printf("Anio al que pertenece: %d\n", alumno.año);
+
+    return 0;
+}
