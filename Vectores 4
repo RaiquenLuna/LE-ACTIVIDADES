@@ -1,0 +1,72 @@
+#include <stdio.h>
+
+#define TAMANO 5
+
+void cargarVector(int vector[], int tamano, int numeroVector);
+void compararVectores(int vector1[], int vector2[], int tamano);
+
+int main(void)
+{
+    int vector1[TAMANO];
+    int vector2[TAMANO];
+
+    cargarVector(vector1, TAMANO, 1);
+    cargarVector(vector2, TAMANO, 2);
+
+    compararVectores(vector1, vector2, TAMANO);
+
+    return 0;
+}
+
+void cargarVector(int vector[], int tamano, int numeroVector)
+{
+    int i;
+
+    printf("\nIngrese los datos del vector %d:\n", numeroVector);
+
+    for (i = 0; i < tamano; i++)
+    {
+        printf("Posicion %d: ", i);
+        scanf("%d", &vector[i]);
+    }
+}
+
+void compararVectores(int vector1[], int vector2[], int tamano)
+{
+    int i;
+    int mayor;
+    int numeroVector;
+    int posicion;
+
+    /* Se toma el primer valor como el mayor inicialmente */
+    mayor = vector1[0];
+    numeroVector = 1;
+    posicion = 0;
+
+    /* Se buscan valores mayores en el vector 1 */
+    for (i = 1; i < tamano; i++)
+    {
+        if (vector1[i] > mayor)
+        {
+            mayor = vector1[i];
+            numeroVector = 1;
+            posicion = i;
+        }
+    }
+
+    /* Se buscan valores mayores en el vector 2 */
+    for (i = 0; i < tamano; i++)
+    {
+        if (vector2[i] > mayor)
+        {
+            mayor = vector2[i];
+            numeroVector = 2;
+            posicion = i;
+        }
+    }
+
+    printf("\nRESULTADO DE LA COMPARACION:\n");
+    printf("El valor mayor es: %d\n", mayor);
+    printf("Pertenece al vector %d.\n", numeroVector);
+    printf("Se encuentra en la posicion %d.\n", posicion);
+}
